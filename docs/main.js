@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"body {\\n    background-color: mistyrose;\\n}\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./src/style/style.css?./node_modules/css-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"body {\\n    background-color: gray;\\n}\\n\\ndiv {\\n    height: 100vh;\\n    display: flex;\\n    justify-content: center;\\n    align-items: center;\\n    font-size: 50px;\\n    color: white;\\n}\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./src/style/style.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -151,7 +151,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (function () {\n  var _document = document,\n      body = _document.body;\n  var div = document.createElement('div');\n  var h1 = document.createElement('h1');\n  h1.innerText = 'Hello World!';\n  div.appendChild(h1);\n  body.appendChild(div);\n});\n;\n\n//# sourceURL=webpack:///./src/script.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (function () {\n  const {\n    body\n  } = document;\n  const clock = document.createElement('div');\n  body.appendChild(clock);\n  const now = new Date();\n  let seconds = now.getSeconds();\n  let minutes = now.getMinutes();\n  let hours = now.getHours() % 12;\n\n  function* secondsGenerator() {\n    while (true) {\n      yield seconds++;\n    }\n  }\n\n  setInterval(() => {\n    const generator = secondsGenerator();\n    generator.next().value;\n\n    if (seconds === 60) {\n      seconds = 0;\n      minutes++;\n\n      if (minutes === 60) {\n        minutes = 0;\n        hours++;\n\n        if (hours === 12) {\n          hours = 0;\n        }\n      }\n    }\n\n    clock.innerHTML = `${hours.toString()}:${minutes.toString()}:${seconds.toString()}`;\n  }, 1000);\n});\n;\n\n//# sourceURL=webpack:///./src/script.js?");
 
 /***/ }),
 
